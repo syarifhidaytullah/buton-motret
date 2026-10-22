@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile Preview - 390x844 (iPhone)</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #0f172a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      color: #fff;
+    }
+    .device-frame {
+      width: 390px;
+      height: 844px;
+      border: 12px solid #334155;
+      border-radius: 48px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      background: #fff;
+      position: relative;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="margin-bottom: 12px;">Mobile Viewport Simulation (390 x 844)</h2>
+  <div class="device-frame">
+    <iframe src="index.html"></iframe>
+  </div>
+</body>
+</html>
