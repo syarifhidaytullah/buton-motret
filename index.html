@@ -1138,20 +1138,6 @@
       color: #ffffff;
     }
 
-    .btn-edit-wa {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--sky-900);
-      background: var(--sky-200);
-      padding: 5px 11px;
-      border-radius: var(--radius-full);
-      transition: var(--transition);
-    }
-
-    .btn-edit-wa:hover {
-      background: #ffffff;
-    }
-
     /* Form Side */
     .booking-form {
       display: grid;
@@ -1369,52 +1355,6 @@
 
     .floating-wa-btn:hover {
       transform: translateY(-3px) scale(1.02);
-    }
-
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.55);
-      backdrop-filter: blur(6px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 200;
-      padding: 20px;
-    }
-
-    .modal-backdrop.open {
-      display: flex;
-    }
-
-    .modal-card {
-      background: var(--surface-white);
-      border: 2px solid var(--sky-200);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      width: 100%;
-      max-width: 440px;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .modal-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.22rem;
-      margin-bottom: 8px;
-      color: var(--text-primary);
-    }
-
-    .modal-card p {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      margin-bottom: 16px;
-    }
-
-    .modal-actions {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-      margin-top: 18px;
     }
 
     /* ==========================================================================
@@ -1985,10 +1925,9 @@
           </div>
 
           <div class="wa-contact-card">
-            <small>Nomor WhatsApp Admin Tujuan</small>
+            <small>Nomor WhatsApp Resmi Admin</small>
             <div class="wa-number-row">
-              <span class="wa-number-display" id="waDisplay">+62 812-3456-7890</span>
-              <button type="button" class="btn-edit-wa" onclick="openWaModal()">⚙️ Ubah No. WA</button>
+              <span class="wa-number-display" id="waDisplay">+62 831-3837-2534</span>
             </div>
           </div>
         </div>
@@ -2113,7 +2052,6 @@
           <a href="#galeri">Galeri</a>
           <a href="#booking">Booking WA</a>
           <a href="https://www.instagram.com/buton_motret/" target="_blank" rel="noopener noreferrer">Instagram Resmi ↗</a>
-          <a href="javascript:void(0)" onclick="openWaModal()">⚙️ Setting No. WA Admin</a>
         </div>
       </div>
       <div class="footer-bottom" style="justify-content: center; text-align: center;">
@@ -2144,34 +2082,10 @@
     </a>
   </div>
 
-  <!-- MODAL PENGATURAN NOMOR WA ADMIN -->
-  <div class="modal-backdrop" id="waModal">
-    <div class="modal-card">
-      <h3>⚙️ Pengaturan Nomor WhatsApp Admin</h3>
-      <p>Masukkan nomor WhatsApp aktif untuk menerima pesanan dari landing page <strong>@buton_motret</strong> (gunakan awalan <code>628...</code> atau <code>08...</code>).</p>
-      <div class="form-group">
-        <label for="adminWaInput">Nomor WhatsApp Tujuan</label>
-        <input type="text" id="adminWaInput" class="form-control" placeholder="Cth: 6283138372534" />
-      </div>
-      <div class="modal-actions">
-        <button type="button" class="btn-secondary-white" style="padding: 9px 16px;" onclick="closeWaModal()">Batal</button>
-        <button type="button" class="btn-primary-sky" style="padding: 9px 18px;" onclick="saveWaNumber()">Simpan Nomor</button>
-      </div>
-    </div>
-  </div>
-
   <!-- SCRIPTS -->
   <script>
-    // =========================================================================
-    // KONFIGURASI NOMOR WHATSAPP ADMIN (Resmi: +62 831-3837-2534)
-    // =========================================================================
-    const DEFAULT_WA_NUMBER = '6283138372534';
-    let storedWa = localStorage.getItem('buton_motret_wa');
-    if (!storedWa || storedWa === '6281234567890') {
-      storedWa = DEFAULT_WA_NUMBER;
-      localStorage.setItem('buton_motret_wa', DEFAULT_WA_NUMBER);
-    }
-    let adminWhatsApp = storedWa;
+    // Nomor WhatsApp Resmi Admin (+62 831-3837-2534)
+    const adminWhatsApp = '6283138372534';
 
     function formatWaReadable(num) {
       const cleaned = num.replace(/\D/g, '');
@@ -2233,31 +2147,6 @@
           item.style.display = 'none';
         }
       });
-    }
-
-    // Modal Ubah Nomor WA
-    function openWaModal() {
-      document.getElementById('adminWaInput').value = adminWhatsApp;
-      document.getElementById('waModal').classList.add('open');
-    }
-
-    function closeWaModal() {
-      document.getElementById('waModal').classList.remove('open');
-    }
-
-    function saveWaNumber() {
-      let raw = document.getElementById('adminWaInput').value.trim().replace(/\D/g, '');
-      if (!raw) {
-        alert('Mohon masukkan nomor WhatsApp yang valid.');
-        return;
-      }
-      if (raw.startsWith('0')) {
-        raw = '62' + raw.slice(1);
-      }
-      adminWhatsApp = raw;
-      localStorage.setItem('buton_motret_wa', adminWhatsApp);
-      updateWaDisplay();
-      closeWaModal();
     }
 
     // Kirim Pesanan Langsung ke WhatsApp

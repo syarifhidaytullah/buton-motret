@@ -18,8 +18,9 @@ Landing page modern untuk jasa fotografi olahraga & event **[Buton Motret (@buto
 5. **Direct WhatsApp Booking Generator**:
    - Formulir pemesanan lengkap (Nama Pemesan, Nama Tim/Komunitas, Pilihan Paket, Tanggal Main, Jam Kick-off, Nama Lapangan/Venue, Add-ons Video Reels/Express Delivery, dan Catatan Jersey).
    - Otomatis menyusun format chat WhatsApp yang rapi dan langsung membuka aplikasi WhatsApp (`wa.me`).
-6. **Pengaturan Nomor WhatsApp Admin Langsung dari UI**:
-   - Tersedia tombol **"⚙️ Ubah No. WA"** di bagian Booking maupun Footer untuk mengganti nomor WhatsApp penerima pesanan kapan saja tanpa perlu mengedit kode.
+6. **Direct WhatsApp Booking Generator**:
+   - Formulir pemesanan lengkap (Nama Pemesan, Nama Tim/Komunitas, Pilihan Paket, Tanggal Main, Jam Kick-off, Nama Lapangan/Venue, Add-ons Video Reels/Express Delivery, dan Catatan Jersey).
+   - Otomatis menyusun format chat WhatsApp yang rapi dan langsung membuka aplikasi WhatsApp (`wa.me`) menuju nomor resmi Buton Motret (+62 831-3837-2534).
 
 ---
 
@@ -31,10 +32,9 @@ File [index.html](file:///home/rifs/buton-motret/index.html) bersifat *standalon
 xdg-open /home/rifs/buton-motret/index.html
 ```
 
-### 2. Mengganti Nomor WhatsApp Admin
+### 2. Nomor WhatsApp Admin
 - **Nomor Default Resmi**: `+62 831-3837-2534` (sesuai bio resmi Instagram @buton_motret).
-- **Cara Cepat lewat Tampilan Web**: Klik tombol **`⚙️ Ubah No. WA`** pada kotak informasi di samping formulir booking, masukkan nomor WhatsApp Anda (contoh: `0812xxxx` atau `62812xxxx`), lalu klik **Simpan Nomor**.
-- **Cara Permanen lewat Kode**: Buka [index.html](file:///home/rifs/buton-motret/index.html) dan ubah nilai konstanta `DEFAULT_WA_NUMBER` pada baris:
+- **Jika ingin mengganti nomor**: Buka [index.html](file:///home/rifs/buton-motret/index.html) dan sesuaikan konstanta `adminWhatsApp` pada baris skrip:
   ```javascript
-  const DEFAULT_WA_NUMBER = '6283138372534';
+  const adminWhatsApp = '6283138372534';
   ```
